@@ -33,3 +33,5 @@ document.querySelector("#reloadB").addEventListener("click", () => {
     log.textContent = "";
     document.location.reload();
 });
+
+// 
