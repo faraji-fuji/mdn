@@ -1,4 +1,5 @@
 // Using the alarm() API
+// using .then
 
 const name = document.querySelector("#name");
 const delay = document.querySelector("#delay");
@@ -17,12 +18,8 @@ function alarm(person, delay){
     })
 }
 
-button.addEventListener("click", async () => {
-    try {
-        const message = await alarm(name.value, delay.value);
-        console.log('alarm is set');
-        output.textContent = message;
-    } catch (error) {
-        output.textContent = `Couldn't set alarm: ${error}`;
-    }
+button.addEventListener("click", () => {
+    alarm(name.value, delay.value)
+        .then((message) => (output.textContent = message))
+        .catch((error) => (output.textContent = `Couldn't set alarm: ${error}`));
 })
